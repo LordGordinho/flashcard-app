@@ -20,18 +20,20 @@ Bundler.require(*Rails.groups)
 
 module FlashcardsApp
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
+    if ['development', 'test'].include? ENV['RAILS_ENV']
+      Dotenv::Railtie.load
+    end
+    
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.eager_load_paths << Rails.root.join('app/components')
+    config.importmap.cache_sweepers << Rails.root.join('app')
+    config.assets.paths << Rails.root.join('app')
+    config.view_component.view_component_path = 'app/components'
   end
 end
