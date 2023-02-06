@@ -10,8 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_29_114105) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "card_items", force: :cascade do |t|
+    t.bigint "card_id", null: false
+    t.boolean "is_correct", default: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_card_items_on_card_id"
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.bigint "deck_id", null: false
+    t.string "content_front"
+    t.string "content_back"
+    t.integer "position"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deck_id"], name: "index_cards_on_deck_id"
+  end
+
+  create_table "decks", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "card_items", "cards"
+  add_foreign_key "cards", "decks"
 end

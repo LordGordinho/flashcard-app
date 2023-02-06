@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root to: "decks#index"
 
-  # Defines the root path route ("/")
-  root "home#index"
+  resources :decks
+  resources :cards
+
+  # devise_for :users, controllers: { sessions: 'users/sessions', resgistrations: 'users/registrations' }
 end

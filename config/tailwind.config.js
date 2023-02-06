@@ -5,6 +5,7 @@ module.exports = {
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
+    './node_modules/flowbite/**/*.js',
     './app/views/**/*.{erb,haml,html,slim}'
   ],
   theme: {
@@ -13,10 +14,14 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
+    color: {
+      "backgroud": "#181818", 
+    }
   },
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
+    require('flowbite/plugin')
   ]
 }

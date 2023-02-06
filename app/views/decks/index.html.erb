@@ -1,0 +1,6 @@
+<% @decks.each do |deck| %>
+  <h2> <%= deck.name %> </h2>
+  <%= link_to "go to #{deck.name}", deck_path(deck) %>
+<% end %>
+
+<%= render 'decks/index_buttons' %>

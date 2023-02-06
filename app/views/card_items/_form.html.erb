@@ -1,0 +1,25 @@
+<%= form_for(card_item) do |f| %>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="form-group">
+        <%= f.label :content_front %>
+        <%= f.text_field :content_front, placeholder: "Front" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div class="form-group">
+        <%= f.label :content_back %>
+        <%= f.text_field :content_back, placeholder: "Back" %>
+      </div>
+    </div>
+  </div>
+  <% p deck.id %>
+  <%= hidden_field_tag 'deck_id', deck.id %>
+
+  <div class="submit">
+    <%= f.submit %>
+  </div>
+<% end %>
