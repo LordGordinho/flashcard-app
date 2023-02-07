@@ -1,5 +1,8 @@
-<div>
-  <% @cards.each do |card| %>
-    <%= render(CardItemComponent.new(card)) %>
-  <% end %>
+<div class="h-screen w-screen flex flex-col items-center justify-center">
+  <div class="overflow-y-scroll w-[700px] h-[500px] flex flex-col items-center justify-between bg-white border border-gray-200 rounded-lg shadow-lg shadow-grey-900 p-10">
+    <% @cards.each do |card| %>
+      <%= render CardItemComponent.new(card: card) %>
+    <% end %>
+    <%= link_to "Finish", deck_path(@deck_id) %>
+  </div>
 </div>

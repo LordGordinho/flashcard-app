@@ -15,7 +15,7 @@ module.exports = {
       },
     },
     color: {
-      "backgroud": "#181818", 
+      "backgroud": "#181818"
     }
   },
   plugins: [
