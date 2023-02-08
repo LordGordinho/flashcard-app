@@ -1,6 +1,6 @@
 <% @decks.each do |deck| %>
-  <h2> <%= deck.name %> </h2>
-  <%= link_to "go to #{deck.name}", deck_path(deck) %>
+  <h2 class="text-white"> <%= deck.name %> </h2>
+  <%= link_to "go to #{deck.name}", deck_path(deck), class: "text-white" %>
 <% end %>
 
 <%= render 'decks/index_buttons' %>

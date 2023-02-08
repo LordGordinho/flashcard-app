@@ -6,7 +6,8 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './node_modules/flowbite/**/*.js',
-    './app/views/**/*.{erb,haml,html,slim}'
+    './app/components/**/*.{erb,haml,html,slim,js}',
+    './app/views/**/*.{erb,haml,html,slim,js}'
   ],
   theme: {
     extend: {
@@ -15,7 +16,7 @@ module.exports = {
       },
     },
     color: {
-      "backgroud": "#181818"
+      "backgroud": "#181818",
     }
   },
   plugins: [
